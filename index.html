@@ -1,115 +1,103 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Calculator</title>
 </head>
 <style>
-    .calculator {
-        background-color:rgb(60, 57, 57);
-    width: 205px;
-    margin: 50px auto;
-    padding: 10px;
-    border: 1px solid rgb(107, 72, 8);
-    border-radius: 5px;
-    text-align: center;
-}
-.line{
-            height: 3px;
-            width:140px;
-            background-color: rgb(99, 96, 96);
-            position: relative;
-            left:30px;
-            bottom: 15px;
-        }
-        .color{
-            height:2px;
-            width: 30px;
-            background-color:rgb(146, 96, 4) ;
-            position: relative;
-            bottom: 17px;
-            animation: name  2s ease-in-out 0s infinite alternate;
-            position: relative;
-        }
-        @keyframes name {
-    0%   { left:30px; }
-    100% { left:140px;}
+
+    *{
+        margin: 0%;
+        padding: 0%;
+    }
+    .calculator{
+        margin-bottom: 0;
+    }
+.buttons button{
+    color: wheat;
+    background-color: grey;
+    font-size: 180px;
+    width: 242px;
+    
 }
 
-.calculator input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
-    font-size: 18px;
+#DE{
+    color: wheat;
+    background-color: grey;
+    font-size: 180px;
+    width: 242px;
 }
 
-.calculator .buttons button {
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    margin: 2px;
-    font-size: 18px;
-}
-
-.calculator .buttons button:last-child {
-    width: 50%;
-}
-button{
-    color: white;
-    background-color: #343333;
-    border: 1px solid rgb(146, 96, 4);
-}
 #result{
-     width: 70%;
-     background-color:rgb(60, 57, 57);
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-left-width:0px ;
-    border-bottom-width:0px ;
-    position: relative;
-    left: 0px;
-    color: white;
-
+    padding: 60px;
+    width: 100%;
+    font-size: 140px;
 }
-
-
 </style>
+
 <body>
-    <div class="calculator">
-        <input type="text" id="result" readonly>
+    <input type="text" class="display" id="result" readonly>
+
+    <div class="calculator">        
         <div class="buttons">
             <div class="design line"></div>
             <div class="color"></div>
-            <button onclick="clearResult()">C</button>
-            <button onclick="appendToResult('9')">9</button>
-            <button onclick="appendToResult('8')">8</button>
-            <button onclick="appendToResult('7')">7</button>
-            <button onclick="appendToResult('6')">6</button>
-            <button onclick="appendToResult('5')">5</button>
-            <button onclick="appendToResult('4')">4</button>
-            <button onclick="appendToResult('3')">3</button>
-            <button onclick="appendToResult('2')">2</button>
-            <button onclick="appendToResult('1')">1</button>
+            <div class="box1">
+                <input type="button" id="DE" value="D" onclick="clearResult()">
+                <button onclick="appendToResult('9')">9</button>
+                <button onclick="appendToResult('+')">+</button>
+            </div>
+
+            <div class="box2">
+                <button onclick="appendToResult('7')">7</button>
+                <button onclick="appendToResult('6')">6</button>
+                <button onclick="appendToResult('5')">5</button>
+                <button onclick="appendToResult('/')">/</button>
+            </div>
+
+            <div class="box3">
+                <button onclick="appendToResult('3')">3</button>
+                <button onclick="appendToResult('2')">2</button>
+                <button onclick="appendToResult('1')">1</button>
+                <button onclick="appendToResult('.')">.</button>
+            </div>
+
+            <div class="box4">
+                <button id="equal" onclick="calculate()">=</button>
+                <button onclick="appendToResult('4')">4</button>
+                <button onclick="appendToResult('8')">8</button>
+                <button onclick="appendToResult('-')">-</button>
+            </div>
+           
+            <div class="box5">
+            <button id="double"  onclick="appendToResult('00')">00</button>
             <button onclick="appendToResult('0')">0</button>
-            <button onclick="appendToResult('.')">.</button>
-            <button onclick="appendToResult('/')">/</button>
-            <button onclick="appendToResult('+')">+</button>
-            <button onclick="appendToResult('-')">-</button>
-            <button onclick="appendToResult('*')">*</button>
-            <button onclick="calculate()">=</button>
+            <button onclick="result.value = result.value.toString().slice(0,-1)"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+            <button id="multiply" onclick="appendToResult('*')">*</button>
+            <!-- <button id="triple"   onclick="appendToResult('000')">00</button> -->
+         </div>
         </div>
+        
     </div>
-<script>function appendToResult(value) {
-    document.getElementById("result").value += value;
-}
-
-function calculate() {
-    var result = eval(document.getElementById("result").value);
-    document.getElementById("result").value = result;
-}
-
-function clearResult() {
-    document.getElementById("result").value = "";
-}
-</script>
 </body>
+<script>
+    function appendToResult(value) {
+        document.getElementById("result").value += value;
+    }
+
+    function calculate() {
+        var result = eval(document.getElementById("result").value);
+        document.getElementById("result").value = result;
+    }
+
+    function clearResult() {
+        document.getElementById("result").value = "";
+
+
+    }
+
+</script>
+<script src="https://kit.fontawesome.com/abf5b61b23.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
