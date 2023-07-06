@@ -5,48 +5,63 @@
     <title>Calculator</title>
 </head>
 <style>
-
-    *{
+    * {
         margin: 0%;
         padding: 0%;
     }
-    .calculator{
-        width: 500px;
-        margin-bottom: 0;
+
+    html {
+        background: black;
     }
-.buttons button{
-    color: wheat;
-    background-color: grey;
-    font-size: 50px;
-    width: 130px;
-    
-}
 
-#DE{
-    color: wheat;
-    background-color: grey;
-    font-size: 50px;
-    width: 130px;
-}
+    .calculator {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 
-#result{
-    padding: 60px;
-    width: 100%;
-    font-size: 140px;
-}
+    .buttons button {
+        color: rgb(239, 239, 231);
+        background-color: rgb(255, 165, 0);
+        font-size: 200px;
+        width: 100%;
+        border-radius: 50%;
+    }
 
-.box1,.box2,.box3,.box4,.box5{
+    #DE {
+        color: rgb(239, 239, 231);
+        background-color: rgb(255, 165, 0);
+        font-size: 200px;
+        width: 100%;
+        border-radius: 50%;
+    }
 
-    display:flex;
-    justify-content: space-evenly;
+    #result {
+        /* padding: 60px; */
+        width: 100%;
+        font-size: 140px;
+        text-align: right;
+        background: black;
+        color: white;
+        border-bottom: 0px;
+    }
 
-}
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5 {
+
+        display: flex;
+        justify-content: space-evenly;
+
+
+    }
 </style>
 
 <body>
-    <input type="text" class="display" id="result" readonly>
-
-    <div class="calculator">        
+    <div class="calculator">
+        <input type="text" class="display" id="result" readonly>
         <div class="buttons">
             <div class="design line"></div>
             <div class="color"></div>
@@ -54,7 +69,9 @@
                 <input type="button" id="DE" value="D" onclick="clearResult()">
                 <button onclick="appendToResult('9')">9</button>
                 <button onclick="appendToResult('+')">+</button>
-                <button onclick="appendToResult('%')">%</button>
+                <button onclick="appendToResult('%')" id="percentage" style="background-color: rgb(239, 239, 231);
+                 color: rgb(255,165,0);
+                ">%</button>
 
             </div>
 
@@ -62,32 +79,41 @@
                 <button onclick="appendToResult('7')">7</button>
                 <button onclick="appendToResult('6')">6</button>
                 <button onclick="appendToResult('5')">5</button>
-                <button onclick="appendToResult('/')">/</button>
+                <button onclick="appendToResult('/')" style="background-color: rgb(239, 239, 231);
+                 color: rgb(255,165,0);
+                ">/</button>
             </div>
 
             <div class="box3">
                 <button onclick="appendToResult('3')">3</button>
                 <button onclick="appendToResult('2')">2</button>
                 <button onclick="appendToResult('1')">1</button>
-                <button onclick="appendToResult('.')">.</button>
+                <button onclick="appendToResult('.')" style="background-color: rgb(239, 239, 231);
+                 color: rgb(255,165,0);
+                 ">.</button>
             </div>
 
             <div class="box4">
                 <button id="equal" onclick="calculate()">=</button>
                 <button onclick="appendToResult('4')">4</button>
                 <button onclick="appendToResult('8')">8</button>
-                <button onclick="appendToResult('-')">-</button>
+                <button onclick="appendToResult('-')" style="background-color: rgb(239, 239, 231);
+                 color: rgb(255,165,0);
+                ">-</button>
             </div>
-           
+
             <div class="box5">
-            <button id="double"  onclick="appendToResult('00')">00</button>
-            <button onclick="appendToResult('0')">0</button>
-            <button onclick="result.value = result.value.toString().slice(0,-1)"><i class="fa-sharp fa-solid fa-xmark"></i></button>
-            <button id="multiply" onclick="appendToResult('*')">*</button>
-            <!-- <button id="triple"   onclick="appendToResult('000')">00</button> -->
-         </div>
+                <button id="double" onclick="appendToResult('00')">00</button>
+                <button onclick="appendToResult('0')">0</button>
+                <button onclick="result.value = result.value.toString().slice(0,-1)"><i
+                        class="fa-sharp fa-solid fa-xmark"></i></button>
+                <button id="multiply" onclick="appendToResult('*')" style="background-color: rgb(239, 239, 231); 
+                       color: rgb(255,165,0);
+                ">*</button>
+                <!-- <button id="triple"   onclick="appendToResult('000')">00</button> -->
+            </div>
         </div>
-        
+
     </div>
 </body>
 <script>
@@ -105,6 +131,11 @@
 
 
     }
+
+    // function percentage(value) {
+    //     document.getElementById("result").value = value*value/100;
+    // }
+
 
 </script>
 <script src="https://kit.fontawesome.com/abf5b61b23.js" crossorigin="anonymous"></script>
